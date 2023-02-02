@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
-
+import Head from "next/head";
+import React from "react";
+import Work from "@/components/Work";
+import Hero from "@/components/Hero";
+import Partner from "@/components/Partner";
+import NavBar from "@/components/NavBar";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 export default function Home() {
   return (
     <>
@@ -14,110 +14,302 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+      <main className="">
+        <NavBar />
+        <Hero />
+        <div className="bg-[#f5f5f5] mb-[70px] py-[75px]">
+          <div className="max-w-6xl mx-auto px-4">
+            <h4 className="text-[#757575] text-[26px] font-semibold leading-[34px] mb-2">
+              We partner with global enterprises and high-growth companies
+            </h4>
+
+            <div className="grid grid-cols-5 space-y-10 items-center">
+              {[
+                "https://10pearls.com/wp-content/uploads/2020/11/JohnsonandJohnsonLogo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/PayPal-White.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/CNX.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Uber_logo_2018-2.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Intuit_Logo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/MedStar_Health_logo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Capital_One_logo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/discovery-education.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Survey-Monkey.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Blackboard.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/National-Geographic.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/k12-logo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Decisiv.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Docker.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/AARP.svg",
+              ].map((items, index) => {
+                return (
+                  <div className="p-5" key={index}>
+                    <img className="" src={items} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
+        <Partner />
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
+        <div>
+          {[
+            {
+              img: "https://10pearls.com/wp-content/uploads/2021/10/Innovation.png",
+              title: " Innovation",
+              description:
+                " We design transformational digital products and experiences that drive real business value and customer impact—so you can create innovative products faster and at scale.",
+            },
+
+            {
+              img: "https://10pearls.com/wp-content/uploads/2021/10/Modernization.png",
+              title: " Innovation",
+              description:
+                " We design transformational digital products and experiences that drive real business value and customer impact—so you can create innovative products faster and at scale.",
+            },
+
+            {
+              img: "https://10pearls.com/wp-content/uploads/2021/10/Digitalization.png",
+              title: " Innovation",
+              description:
+                " We design transformational digital products and experiences that drive real business value and customer impact—so you can create innovative products faster and at scale.",
+            },
+
+            {
+              img: "https://10pearls.com/wp-content/uploads/2021/10/Augmentation.png",
+              title: " Innovation",
+              description:
+                " We design transformational digital products and experiences that drive real business value and customer impact—so you can create innovative products faster and at scale.",
+            },
+          ].map((items, index) => {
+            return (
+              <div
+                key={index}
+                className={`items-center pt-[30px] mx-16  ${
+                  index == 1 || index == 3 ? "flex flex-row-reverse " : "flex "
+                }`}
+              >
+                <div
+                  className={`bg-[#FAFAFA] relative max-w-7xl mx-auto py-[90.0694px] ${
+                    index == 1 || index == 3
+                      ? " pl-[150px] pr-[63.0417px] -left-28"
+                      : "px-[63.0417px]"
+                  }`}
+                >
+                  <h3 className="text-[#757575] text-[26px] font-semibold leading-[34px]">
+                    {items.title}
+                  </h3>
+                  <h6 className="text-[20px] leading-[32px] text-[#2a2a2a] mt-5 mb-[25px] ">
+                    {items.description}
+                  </h6>
+                  <h6 className="text-[#064aa8] cursor-pointer hover:underline font-bold  leading-[24px] ">
+                    learn more
+                  </h6>
+                </div>
+                <div
+                  className={`max-w-7xl mx-auto relative ${
+                    index == 1 || index == 3 ? "" : "-left-20 "
+                  }`}
+                >
+                  <img className="" src={items.img} />
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+        <Work />
+        <div className="bg-[#F5F6F8] mb-[70px] mt-20 py-[75px]">
+          <div className="max-w-6xl mx-auto px-4">
+            <h4 className="text-[#064aa8] text-[26px] font-semibold leading-[34px] mb-2">
+              TECHNOLOGY PLATFORMS
+            </h4>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+            <div className="grid grid-cols-4 space-y-10 items-center">
+              {[
+                "https://10pearls.com/wp-content/uploads/2020/11/Google_Cloud_Logo.svg",
+                "https://10pearls.com/wp-content/uploads/2021/10/aws-partnernetwork.svg",
+                "https://10pearls.com/wp-content/uploads/2021/10/microsoft-partner-logo-new.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/salesforce_logo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/servicenow-1-1.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/sap-ariba-vector-logo-1.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Microsoft_Azure_Logo.svg",
+                "https://10pearls.com/wp-content/uploads/2020/11/Adobe_logo_and_wordmark_2017.svg",
+              ].map((items, index) => {
+                return (
+                  <div className="p-5" key={index}>
+                    <img className="" src={items} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div className=" mb-[70px] py-[75px]">
+          <div className="max-w-6xl mx-auto px-4 ">
+            <h4 className="text-[#064aa8] text-[26px] font-semibold leading-[34px] mb-2">
+              RECOGNITION & AWARDS
+            </h4>
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
+            <div className="grid grid-cols-2 gap-10 mt-20  items-center">
+              {[
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2022/05/ey-logo.png",
+                  desc: "EY Announced Imran Aftab as an Entrepreneur Of The Year® 2022 Mid-Atlantic Award Winner",
+                  btn: "learn more",
+                },
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2020/09/inc-500.svg",
+                  desc: "Recognized on the Inc. 5000 list of fastest growing private companies in America for 4 years in a row ",
+                  btn: "learn more",
+                },
+
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2022/08/ft-logo-12.png",
+                  desc: "Recognized on The Financial Times list of The Americas’ Fastest Growing Companies 2022",
+                  btn: "learn more",
+                },
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2020/06/GARTNER-2.svg",
+                  desc: "Recognized for DevOps, Agile, and Artificial Intelligence and Machine Learning Expertise",
+                  btn: "learn more",
+                },
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2020/06/FORRESTER-2.svg",
+                  desc: "Top Partner for Custom Software Development, Enterprise Mobile, and Digital Experiences",
+                  btn: "learn more",
+                },
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2022/04/MicrosoftTeams-image-63.png",
+                  desc: "Recognized by Tech in Motion (Timmy Awards) for Best Tech Work Culture ",
+                  btn: "learn more",
+                },
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2021/08/tmp_1629784342687.png",
+                  desc: "#1 Most Diverse Midsize Company in Greater DC",
+                  btn: "learn more",
+                },
+                {
+                  img: "https://10pearls.com/wp-content/uploads/2020/06/THEWASHINGTON-POST-1.svg",
+                  desc: "A 'double bottom line' company that earns profits while accomplishing social good",
+                  btn: "learn more",
+                },
+              ].map((items, index) => {
+                return (
+                  <div
+                    className="
+                  pt-[15px] px-[28px] pb-[10px] max-w-[540px] max-h-[203px] mb-[39px] border hover:border-[#0045a6]  border-[#d9d9d9]"
+                    key={index}
+                  >
+                    <img
+                      className={`${
+                        items.img == [0] ? "w-[86px] h-[61px] -mt-12 " : ""
+                      }   ${
+                        items.img == [1]
+                          ? ""
+                          : "w-[280px] h-[74px] -mt-14 bg-white"
+                      } ${items.img == [2] ? "-mt-14" : ""}  
+                      
+                      ${items.img == [3] ? "-mt-12 bg-white " : ""}
+                      ${items.img == [4] ? "-mt-8 bg-white" : ""}   ${
+                        items.img == [5] ? "w-[149px] h-[86px] -mt-10" : ""
+                      } ${items.img == [6] ? " -mt-14" : ""}   ${
+                        items.img == [7] ? " -mt-8 bg-white" : ""
+                      }
+
+                      `}
+                      src={items.img}
+                    />
+
+                    <h4 className="text-[#2a2a2a] text-[20px] mt-10 leading-[32px] mb-[16px]">
+                      {items.desc}
+                    </h4>
+                    <h6 className="text-[#0045a6] font-bold leading-[16px]">
+                      {items.btn}
+                    </h6>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="bg-[#FAFAFA] py-20 ">
+          <h4 className="text-[#757575] text-center text-[26px] font-semibold leading-[34px] mb-10">
+            We partner with global enterprises and high-growth companies
+          </h4>
+          <button className="text-[#064aa8] hover:text-white delay-200 duration-300 hover:bg-[#0045a6] border border-[#064aa8] mx-auto flex  text-[17px] leading-[23.8px] py-[15px] px-[38px] text-center">
+            Contact Us
+          </button>
+        </div>
+
+        <div className="bg-[#202022] pb-3 pt-[89px]">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-2 ">
+              <div className="border-r-2 border-r-white ">
+                <img
+                  className="w-[150px] h-[47px]"
+                  src="https://10pearls.com/wp-content/uploads/2020/06/10P-Logo.svg"
+                />
+                <p className="text-[#ffffff] leading-[27px] text-[20px] pt-8 font-normal">
+                  10Pearls is an award winning digital development <br />{" "}
+                  company, helping business with product design, <br />{" "}
+                  development and technology acceleration.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 pl-10">
+                <div className="grid grid-cols-2 border-r-2 border-r-white">
+                  {[
+                    "Company",
+                    "Insight",
+                    "services",
+                    "Careers",
+                    "work",
+                    "contact",
+                  ].map((items) => {
+                    return (
+                      <h5 className="text-[#ffffff] text-[15px] font-semibold leading-[37.5px] ">
+                        {items}
+                      </h5>
+                    );
+                  })}
+                </div>
+
+                <div className="grid grid-cols-2  pl-10">
+                  {[
+                    "USAV(HQ in Wash DC)",
+                    "Columbia",
+                    "Costa rica",
+                    "Peru",
+                    "Pakstan",
+                    "UK",
+                    "Canada",
+                    "UAE",
+                  ].map((items, index) => {
+                    return (
+                      <h5
+                        key={index}
+                        className="text-[#ffffff]  text-[15px] font-semibold leading-[37.5px]  "
+                      >
+                        {items}
+                      </h5>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex text-[#ffffff] mt-20 border-t-2 pt-8  border-t-white leading-[27px] text-[18px] font-normal gap-6">
+              <span className="">+1-703-935-1919</span>
+              <span> info@10pearls.com</span>
+              <FaFacebookF className="text-white w-10 p-2 h-10 border border-white rounded-full" />
+              <FaTwitter className="text-white w-10 p-2 h-10 border border-white rounded-full" />
+              <FaLinkedinIn className="text-white w-10 p-2 h-10 border border-white rounded-full" />
+            </div>
+          </div>
         </div>
       </main>
     </>
-  )
+  );
 }
